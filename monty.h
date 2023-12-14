@@ -34,4 +34,19 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 extern stack_t *head;
+stack_t *newNode(int data);
+int main(int argc, char *argv[]);
+int tokanize(char *b, int lineNum, int type);
+void select(char *opcode, char *data, int lineNum, int type);
+void haveCode(op_func func, char *opcode, char *data, int lineNum, int type);
+void fileHandel(char *fileNam);
+void pushStak(stack_t **nNode, __attribute__((unused))unsigned int lineNum);
+void popStak(stack_t **stack, unsigned int lineNum);
+void displayAll(stack_t **stack, unsigned int lineNum);
+void pint(stack_t **stack, unsigned int lineNum);
+void no_thing(stack_t **stack, unsigned int lineNum);
+void swap_nums(stack_t **stack, unsigned int lineNum);
+void add_nums(stack_t **stack, unsigned int lineNum);
+typedef void (*op_func)(stack_t **, unsigned int);
+void addToQueue(stack_t **qNode, __attribute__((unused))unsigned int lineNum);
 #endif

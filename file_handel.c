@@ -40,6 +40,14 @@ void select(char *opcode, char *data, int lineNum, int type)
 	int i, j;
 
 	instruction_t code_lists[] = {
+		{"push", pushStak},
+		{"pall", displayAll},
+		{"pint",  pint},
+		{"pop", popStak},
+		{"nop", no_thing},
+		{"swap", swap_nums},
+		{"add", add_nums},
+		{NULL, NULL}
 	};
 	if (opcode[0] == '#')
 		return;
@@ -99,7 +107,7 @@ void haveCode(op_func func, char *opcode, char *data, int lineNum, int type)
 		}
 		if (type == 1)
 		{
-			add_to_queue(&nNode, lineNum);
+			addToQueue(&nNode, lineNum);
 		}
 	}
 	else
