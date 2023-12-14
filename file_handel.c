@@ -92,7 +92,7 @@ void haveCode(op_func func, char *opcode, char *data, int lineNum, int type)
 			fprintf(stderr, "L%d: usage: push integer\n", lineNum);
 			exit(EXIT_FAILURE);
 		}
-		for (i = 0; data[i] != "\0"; i++)
+		for (i = 0; data[i] != '\0'; i++)
 		{
 			if (isdigit(data[i]) == 0)
 			{
@@ -125,17 +125,17 @@ void fileHandel(char *fileNam)
 	int lineNum, type = 0;
 	size_t length = 0;
 	char *b = NULL;
-	FILE *file_des = fopen(fileNam, "r");
+	FILE *fd = fopen(fileNam, "r");
 
-	if (file_des == NULL || fileNam == NULL)
+	if (fd == NULL || fileNam == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", fileNam);
 		exit(EXIT_FAILURE);
 	}
-	for (lineNum = 1; getline(&b, &length, file_des) != -1; lineNum++)
+	for (lineNum = 1; getline(&b, &length, fd) != -1; lineNum++)
 	{
 		type = tokanize(b, lineNum, type);
 	}
 	free(b);
-	fclose(file_des);
+	fclose(fd);
 }

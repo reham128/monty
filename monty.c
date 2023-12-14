@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
 	fileHandel(argv[1]);
 	if (head == NULL)
 	{
-		return;
+		return (-1);
 	}
 	while (head != NULL)
 	{
