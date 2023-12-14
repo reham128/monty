@@ -21,7 +21,7 @@ void pushStak(stack_t **nNode, __attribute__((unused))unsigned int lineNum)
 	ptr = head;
 	head = *nNode;
 	head->next = ptr;
-	ptr->prev;
+	ptr->prev = head;
 }
 /**
  * popStak - function to delete from top

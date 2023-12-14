@@ -13,7 +13,7 @@ int tokanize(char *b, int lineNum, int type)
 	if (b == NULL)
 	{
 		fprintf(stderr, "Error:malloc failed\n");
-		return;
+		exit(EXIT_FAILURE);
 	}
 	opcode = strtok(b, dlim);
 	if (opcode == NULL)
@@ -101,7 +101,7 @@ void haveCode(op_func func, char *opcode, char *data, int lineNum, int type)
 			}
 		}
 		nNode = newNode(atoi(data) * j);
-		if (type = 0)
+		if (type == 0)
 		{
 			func(&nNode, lineNum);
 		}
@@ -134,7 +134,7 @@ void fileHandel(char *fileNam)
 	}
 	for (lineNum = 1; getline(&b, &length, file_des) != -1; lineNum++)
 	{
-		type = tokanize(b, lineNUM, type);
+		type = tokanize(b, lineNum, type);
 	}
 	free(b);
 	fclose(file_des);

@@ -7,7 +7,7 @@ stack_t *head = NULL;
  */
 stack_t *newNode(int data)
 {
-	stack_t *new_node = malloc(sizeof(stack__t));
+	stack_t *new_node = malloc(sizeof(stack_t));
 
 	if (new_node == NULL)
 	{
